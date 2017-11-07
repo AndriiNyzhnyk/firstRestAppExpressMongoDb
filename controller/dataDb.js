@@ -1,7 +1,7 @@
 const DataDb = require('../models/dataDb');
 
 exports.users = (req, res) => {
-    DataDb.users((db, err, users) => {
+    DataDb.users((err, users, db) => {
         if(err) {
             console.error(err);
             return res.status(400).send();
@@ -13,7 +13,7 @@ exports.users = (req, res) => {
 };
 
 exports.getUserId = (req, res) => {
-    DataDb.getUserId(req, (db, err, user) => {
+    DataDb.getUserId(req, (err, user, db) => {
         if(err) {
             console.error(err);
             return res.status(400).send();
@@ -25,7 +25,7 @@ exports.getUserId = (req, res) => {
 };
 
 exports.postAddUser = (req, res) => {
-    DataDb.postAddUser(req, (db, user, err, result) => {
+    DataDb.postAddUser(req, (err, result, db, user) => {
         if(err) {
             console.error(err);
             return res.status(400).send();
@@ -37,7 +37,7 @@ exports.postAddUser = (req, res) => {
 };
 
 exports.deleteUser = (req, res) => {
-    DataDb.deleteUser(req, (db, err, result) => {
+    DataDb.deleteUser(req, (err, result, db) => {
         if(err) {
             console.error(err);
             return res.status(400).send();
@@ -49,7 +49,7 @@ exports.deleteUser = (req, res) => {
 };
 
 exports.putUser = (req, res) => {
-    DataDb.putUser(req, (db, err, result) => {
+    DataDb.putUser(req, (err, result, db) => {
         if(err) {
             console.error(err);
             return res.status(400).send();
