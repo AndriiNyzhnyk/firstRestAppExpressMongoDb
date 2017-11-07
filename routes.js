@@ -6,6 +6,10 @@ let  url = 'mongodb://localhost:27017/usersdb';
 let func = require('./functions');
 
 module.exports = (app) => {
+    app.get("/", (req, res) => {
+        res.render("index.hbs");
+    });
+
 // отримання списку даних
     app.get("/api/users", (req, res) => {
         mongoClient.connect(url, (err, db) => {
